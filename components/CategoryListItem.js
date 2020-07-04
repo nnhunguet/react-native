@@ -5,16 +5,22 @@ import {
   Image,
   Text,
   View,
+  TouchableOpacity,
+  Alert,
 } from 'react-native'
 
 import Spider from '../assets/spiderweb.png'
 
 export default function CategotyListItem(props) {
-  const { category } = props;
-  return <View style={styles.container}>
-    <Text style={styles.title}>{category.title}</Text>
-    <Image style={styles.categoryImage}  source={Spider}></Image>
-  </View>
+  const { category, onPress } = props;
+  return (
+    <TouchableOpacity activeOpacity={0.4} onPress= {onPress}>
+      <View style={styles.container}>
+        <Text style={styles.title}>{category.title}</Text>
+        <Image style={styles.categoryImage}  source={Spider}></Image>
+      </View>
+    </TouchableOpacity>
+  )
 }
 
 const styles = StyleSheet.create({
